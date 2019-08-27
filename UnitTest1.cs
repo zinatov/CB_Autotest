@@ -45,7 +45,7 @@ namespace SeleniumTests
             //driver.SwitchTo().Alert().SetAuthenticationCredentials("Ruslan.Zinatov", "ZuLu3$52w#");
             //driver.SwitchTo().Alert().SendKeys("Ruslan.Zinatov" + Keys.Tab + "ZuLu3$52w#" + Keys.Tab);
             //driver.SwitchTo().Alert().Accept();
-            //System.Diagnostics.Process.Start("C:\\Source\\Repos\\CB_Autotest\\AutoItScript\\HandleAuthentication.exe");
+            System.Diagnostics.Process.Start("C:\\Source\\Repos\\CB_Autotest\\AutoItScript\\HandleAuthentication.exe");
 
             //Авторизация
             driver.FindElement(By.Id("User")).Click();
