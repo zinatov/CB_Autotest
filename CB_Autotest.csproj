@@ -76,6 +76,7 @@
     <Compile Include="model\AccountData.cs" />
     <Compile Include="tests\AuthTestBase.cs" />
     <Compile Include="tests\LoginTests.cs" />
+    <Compile Include="tests\NavigationTests.cs" />
     <Compile Include="tests\TestBase.cs" />
     <Compile Include="tests\ContractTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

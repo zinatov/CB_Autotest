@@ -33,7 +33,7 @@ namespace CB_Autotest
         {
             try
             {
-                driver.Quit();
+                driver.Quit(); 
             }
             catch (Exception)
             {
@@ -46,7 +46,7 @@ namespace CB_Autotest
             if (!app.IsValueCreated)
             {
                 ApplicationManager newInstasnce = new ApplicationManager();
-                newInstasnce.Navigator.GoToAuthPage();
+                newInstasnce.Navigator.OpenAuthPage();
                 app.Value = newInstasnce;
             }
             return app.Value;

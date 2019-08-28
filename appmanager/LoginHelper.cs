@@ -22,11 +22,11 @@ namespace CB_Autotest
         {
             if (IsLoggedIn())
             {
-                //if (IsLoggedIn(account))
-                //{
-                //    return;
-                //}
-                //LogOut();
+                if (IsLoggedIn(account))
+                {
+                    return;
+                }
+                LogOut();
             }
             Type(By.Name("User"), account.Username);
             Type(By.Name("Password"), account.Password);
@@ -38,19 +38,17 @@ namespace CB_Autotest
             return IsElementPresent(By.Id("NotReadCount"));
         }
 
-        //Доделать
-        //public bool IsLoggedIn(AccountData account)
-        //{
-        //    return IsLoggedIn()
-        //        && GetLoggetUserName() == account.Username;
-        //}
+        public bool IsLoggedIn(AccountData account)
+        {
+            return IsLoggedIn()
+                && GetLoggetUserName() == account.Username;
+        }
 
-        //public string GetLoggetUserName()
-        //{
-        //    string text = driver.FindElement(By.Name("logout")).FindElement(By.TagName("b")).Text;
-        //    return text.Substring(1, text.Length - 2);
-
-        //}
+        public string GetLoggetUserName()
+        {
+            string text = driver.FindElement(By.CssSelector("span.over_headerText")).Text;
+            return text.Substring(text.IndexOf('(') +1, text.Length - 2 - text.IndexOf('('));
+        }
 
         public void LogOut()
         {

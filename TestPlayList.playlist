@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="CB_Autotest.AgreementTestCase.ContractCreationTest" /><Add Test="CB_Autotest.AgreementTestCase.OpenAgreementTest" /><Add Test="CB_Autotest.LoginTests.LoginWithValidCredentials" /><Add Test="CB_Autotest.LoginTests.LoginWithInvalidCredentials" /></Playlist>

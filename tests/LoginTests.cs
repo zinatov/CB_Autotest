@@ -14,7 +14,7 @@ namespace CB_Autotest
         public void LoginWithValidCredentials()
         {
             //prepare
-            app.Navigator.GoToAuthPage();
+            app.Navigator.OpenAuthPage();
 
             // action
             AccountData account = new AccountData("autotest_user", "123");

@@ -12,14 +12,12 @@ namespace CB_Autotest
     [TestFixture]
     public class AgreementTestCase : AuthTestBase
     {
-        
         [Test]
-        public void OpenAgreementTest()
+        public void ContractCreationTest()
         {
-            ////Переход ЕРД
-            app.Conrtacts.OpenAgreementPage();          
-
+            //Создание договора
+            app.Navigator.OpenAgreementPage();
+            app.Conrtacts.ContractCreation();
         }
- 
     }
 }
