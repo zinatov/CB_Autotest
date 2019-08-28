@@ -1,4 +1,3 @@
-WinWaitActive("Windows Security")
 	Send('Ruslan.Zinatov@norbit.ru')
 	Send('{TAB}')
 	Send('ZuLu3$52w#')
@@ -7,4 +6,3 @@ WinWaitActive("Windows Security")
 	Send("{ENTER}")
 
 
-    
