@@ -18,6 +18,7 @@ namespace CB_Autotest
 
         public void ContractCreation()
         {
+            
             OpenContractCreateForm();
             FillFormOnFirstTab();
             OpenSecondTab();
