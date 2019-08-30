@@ -21,25 +21,55 @@ namespace CB_Autotest
             
             OpenContractCreateForm();
             FillFormOnFirstTab();
-            OpenSecondTab();
-
+            OpenNextTab();
+            FillFormOnSecondTab();
+            OpenNextTab();
+            OpenNextTab();
+            FillFormOnFouthTab();
+            OpenNextTab();
+            FillFormOnFifthTab();
+            OpenNextTab();
         }
 
-        private void OpenSecondTab()
+        public void FillFormOnFifthTab()
+        {
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Этап'])[1]/following::a[1]")).Click();
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Описание'])[1]/following::span[4]")).Click();
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Выйти в реестр'])[1]/following::input[1]")).Clear();
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Выйти в реестр'])[1]/following::input[1]")).SendKeys("авианакладная");
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Выйти в реестр'])[1]/following::input[1]")).SendKeys(Keys.Enter);
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='select'])[14]/following::input[1]")).Click();
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='select'])[14]/following::input[1]")).Clear();
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='select'])[14]/following::input[1]")).SendKeys("Номер договора");
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='select'])[14]/following::input[1]")).SendKeys(Keys.Enter);
+            driver.FindElement(By.Id("AttachmentId_uploader")).SendKeys("D:\\1.txt");
+            driver.FindElement(By.CssSelector("a.k-button.k-button-icontext.k-primary.k-grid-update.icon.ic_update")).Click();
+        }
+
+        public void FillFormOnFouthTab()
+        {
+            driver.FindElement(By.CssSelector("#paymentSchedules > div.k-header.k-grid-toolbar.k-grid-top > a.k-button.k-button-icontext.k-grid-add")).Click();
+            driver.FindElement(By.CssSelector("span[name=\"ExpenseName\"]")).Click();
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='[00000002]: СЗ в интересах административной деятельности'])[1]/preceding::span[1]")).Click();
+            driver.FindElement(By.ClassName("k-formatted-value required width100 cppu-price-value k-input")).SendKeys("1000");
+            driver.FindElement(By.LinkText("Обновить")).Click();
+        }
+
+        public void OpenNextTab()
         {
             driver.FindElement(By.LinkText("Далее")).Click();
+            if (IsElementPresent(By.CssSelector("input.cc-yes.k-button")))
+            {
+                driver.FindElement(By.CssSelector("input.cc-yes.k-button")).Click();
+            }
         }
 
-        private void NewMethod()
+        public void FillFormOnFirstTab()
         {
-            driver.FindElement(By.LinkText("Далее")).Click();
-        }
-
-        private void FillFormOnFirstTab()
-        {
+            String ContractNumberName = "Номер договора" + " " + (DateTime.Now).ToString();
             driver.FindElement(By.Id("Number")).Click();
             driver.FindElement(By.Id("Number")).Clear();
-            driver.FindElement(By.Id("Number")).SendKeys("Номер договора");
+            driver.FindElement(By.Id("Number")).SendKeys(ContractNumberName);
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Дата'])[1]/following::span[4]")).Click();
             driver.FindElement(By.LinkText("28")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Способ закупки'])[1]/following::span[3]")).Click();
@@ -63,7 +93,7 @@ namespace CB_Autotest
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Наименование документа'])[1]/following::span[3]")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='не задано'])[6]/following::li[1]")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Вид договора'])[1]/following::span[3]")).Click();
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='не задано'])[6]/following::li[1]")).Click();
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='договор на выполнение научно-исследовательских работ'])[1]/following::li[1]")).Click();
             driver.FindElement(By.Id("Signatory")).Click();
             driver.FindElement(By.Id("Signatory")).Clear();
             driver.FindElement(By.Id("Signatory")).SendKeys("Подписант");
@@ -71,8 +101,20 @@ namespace CB_Autotest
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Вс'])[2]/following::a[31]")).Click();
         }
 
-        private void OpenContractCreateForm()
+        public void FillFormOnSecondTab()
         {
+            Thread.Sleep(3000);
+            driver.FindElement(By.LinkText("Добавить")).Click();
+            driver.FindElement(By.Id("ContractPrice")).Click();
+            driver.FindElement(By.Id("ContractPrice")).Clear();
+            driver.FindElement(By.Id("ContractPrice")).SendKeys("500000");
+            driver.FindElement(By.CssSelector("a.k-button.k-button-icontext.k-primary.k-grid-update.icon.ic_update")).Click();
+
+        }
+
+        public void OpenContractCreateForm()
+        {
+            Thread.Sleep(1000);
             driver.FindElement(By.LinkText("Добавить")).Click();
         }
     }

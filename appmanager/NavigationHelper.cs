@@ -16,27 +16,18 @@ namespace CB_Autotest
         {
         }
 
-        //Переход на рабочий стол
-        public void Open_StartPage()
-        {
-            if (driver.Url == "http://npaee.norbit.ru:7003/Authorized")
-            {
-                return;
-            }
-            driver.Navigate().GoToUrl("http://npaee.norbit.ru:7003/Authorized");
-        }
         
         //Страница авторизации
         public void OpenAuthPage()
         {
             driver.Manage().Window.Maximize();
-            driver.Url = "http://npaee.norbit.ru:7003/Account/LogIn?sysconfig=1";
+            driver.Url = "http://npaee.norbit.ru:" + PortNumberOfTestStand + "/Account/LogIn?sysconfig=1";
         }
 
         //Возвращает название реестра 
-        public string TitleTextFromPage()
+        public string TitleTextFromPage(By by)
         {
-            string TitleText = driver.FindElement(By.CssSelector("h2.h4")).Text;
+            string TitleText = driver.FindElement(by).Text;
             return TitleText;
         }
 
@@ -49,7 +40,7 @@ namespace CB_Autotest
         public void OpenPlanItemPage()
         {
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Реестр потребностей'])[1]/preceding::h3[1]")).Click();
-            driver.FindElement(By.XPath("//a[contains(text(),'Реестр лотов и ПЗ')]")).Click();
+            driver.FindElement(By.XPath("//li[@id='MI_PlanItemAndLotRegister']/a")).Click();
         }
 
         public void OpenProcInitiatingPage()
@@ -65,7 +56,7 @@ namespace CB_Autotest
         }
 
         public void OpenAgreementPage()
-        {
+        {   
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Единый реестр договоров'])[2]/preceding::h3[1]")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Единый реестр договоров'])[1]/following::a[1]")).Click();
         }
@@ -76,6 +67,44 @@ namespace CB_Autotest
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='hidden'])[3]/following::a[1]")).Click();
         }
 
+        public void OpenPurchCommissionPage()
+        {
+            driver.FindElement(By.Id("ui-accordion-main-header-11")).Click();
+            driver.FindElement(By.XPath("//a[contains(@href, '/References/PurchCommission')]")).Click();
+        }
 
+        public void OpenVotingConclusionPage()
+        {
+            driver.FindElement(By.XPath("(//a[contains(@href, '/ZK/VotingConclusion')])[2]")).Click();
+        }
+
+        public void OpenVotingAgendaPage()
+        {
+           // driver.FindElement(By.Id("ui-accordion-main-header-11")).Click();
+            driver.FindElement(By.XPath("//a[contains(@href, '/ZK/VotingAgenda')]")).Click();
+        }
+
+        public void OpenProtocolVotingConclusionPage()
+        {
+            driver.FindElement(By.Id("ui-accordion-main-header-11")).Click();
+            driver.FindElement(By.XPath("//a[contains(@href, '/ZK/ProtocolVotingConclusion')]")).Click();
+        }
+
+        public void OpenVotingBulletinPage()
+        {
+            driver.FindElement(By.XPath("//a[contains(@href, '/ZK/VotingBulletin')]")).Click();
+        }
+
+        public void OpenMemberPurchCommissionPage()
+        {
+            driver.FindElement(By.Id("ui-accordion-main-header-11")).Click();
+            driver.FindElement(By.XPath("//a[contains(@href, '/References/MemberPurchCommission')]")).Click();
+        }
+
+        public void OpenApprovingNoticeCompetitionPage()
+        {
+            driver.FindElement(By.Id("ui-accordion-main-header-11")).Click();
+            driver.FindElement(By.XPath("//a[contains(@href, '/ZK/ApprovingNoticeCompetition')]")).Click();
+        }
     }
 }

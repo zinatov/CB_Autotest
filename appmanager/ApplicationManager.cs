@@ -10,7 +10,7 @@ using OpenQA.Selenium.IE;
 
 namespace CB_Autotest
 {
-    public class ApplicationManager
+    public class ApplicationManager /*: IDisposable*/
     {
         protected IWebDriver driver;
         protected NavigationHelper navigationHelper;
@@ -19,6 +19,8 @@ namespace CB_Autotest
         protected StringBuilder verificationErrors;
 
         private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
+
+        //private static ApplicationManager app = new ApplicationManager();
         private ApplicationManager()
         {
             driver = new InternetExplorerDriver();
@@ -51,6 +53,18 @@ namespace CB_Autotest
             }
             return app.Value;
         }
+
+        //public void Dispose()
+        //{
+        //    try
+        //    {
+        //        driver.Quit();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        // Ignore errors if unable to close the browser
+        //    }
+        //}
 
         public IWebDriver Driver
         {

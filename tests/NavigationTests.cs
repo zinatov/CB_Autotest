@@ -17,7 +17,7 @@ namespace CB_Autotest
         public void OpenDesirePageTest()
         {   //Проверка открытия реестра потреностей
             app.Navigator.OpenDesirePage();
-            Assert.AreEqual(app.Navigator.TitleTextFromPage(), "Реестр потребностей");
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("h2.h4")), "Реестр потребностей");
         }
 
 
@@ -25,36 +25,78 @@ namespace CB_Autotest
         public void OpenAgreementPageTest()
         {   //Проверка открытия ЕРД
             app.Navigator.OpenAgreementPage();
-            Assert.AreEqual(app.Navigator.TitleTextFromPage(), "Единый реестр договоров");
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("h2.h4")), "Единый реестр договоров");
         }
 
         [Test]
         public void OpenPlanItemPageTest()
         {   //Проверка открытия реестра лотов и ПЗ
             app.Navigator.OpenPlanItemPage();
-            Assert.AreEqual(app.Navigator.TitleTextFromPage(), "Реестр лотов и ПЗ");
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("h2.h4")), "Реестр лотов и ПЗ");
         }
 
         [Test]
         public void OpenProcPlanningPageTest()
         {   //Проверка открытия реестра ГПЗ
             app.Navigator.OpenProcPlanningPage();
-            Assert.AreEqual(app.Navigator.TitleTextFromPage(), "Реестр годовых планов закупок");
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("h2.h4")), "Реестр годовых планов закупок");
         }
 
         //Название реестра в другом локаторе, нужно доработать
-        //[Test]
-        //public void OpenProcInitiatingPageTest()
-        //{   //Проверка открытия реестра ЗНЗ
-        //    app.Navigator.OpenProcInitiatingPage();
-        //    Assert.AreEqual(app.Navigator.TitleTextFromPage(), "Заявки на закупку");
-        //}
+        [Test]
+        public void OpenProcInitiatingPageTest()
+        {   //Проверка открытия реестра ЗНЗ
+            app.Navigator.OpenProcInitiatingPage();
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("div.main-center-authorized.mainmenu-margin > h2")), "Заявки на закупку");
+        }
 
         [Test]
         public void OpenPurchaseInformationPageTest()
         {   //Проверка открытия реестра ЗНЗ
             app.Navigator.OpenPurchaseInformationPage();
-            Assert.AreEqual(app.Navigator.TitleTextFromPage(), "Реестр закупок");
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("h2.h4")), "Реестр закупок");
+        }
+
+        [Test] 
+        public void OpenMemberPurchCommissionPageTest()
+        {   //Проверка открытия реестра Члены комиссий
+            app.Navigator.OpenMemberPurchCommissionPage();
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("div.main-center-authorized.mainmenu-margin > h2")), "Члены комиссий");
+        }
+
+        [Test]
+        public void OpenPurchCommissionPageTest()
+        {   //Проверка открытия реестра Комиссии 
+            app.Navigator.OpenPurchCommissionPage();
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("div.main-center-authorized.mainmenu-margin > h2")), "Комиссии");
+        }
+
+        [Test]
+        public void OpenVotingConclusionPageTest()
+        {   //Проверка открытия реестра Проекты протоколов заседания комиссии
+            app.Navigator.OpenVotingConclusionPage();
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("div.main-center-authorized.mainmenu-margin > h2")), "Проекты протоколов заседания комиссии");
+        }
+
+        [Test]
+        public void OpenVotingAgendaPageTest()
+        {   //Проверка открытия реестра Повестки заседаний комиссии
+            app.Navigator.OpenVotingAgendaPage();
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("div.main-center-authorized.mainmenu-margin > h2")), "Повестки заседаний комиссии");
+        }
+
+        [Test]
+        public void OpenVotingBulletinPageTest()
+        {   //Проверка открытия реестра Бюллетени комиссии
+            app.Navigator.OpenVotingBulletinPage();
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("div.main-center-authorized.mainmenu-margin > h2")), "Бюллетени комиссии");
+        }
+
+        [Test]
+        public void OpenApprovingNoticeCompetitionPageTest()
+        {   //Проверка открытия реестра Утверждение извещений
+            app.Navigator.OpenApprovingNoticeCompetitionPage();
+            Assert.AreEqual(app.Navigator.TitleTextFromPage(By.CssSelector("div.main-center-authorized.mainmenu-margin > h2")), "Утверждение извещений");
         }
     }
 }

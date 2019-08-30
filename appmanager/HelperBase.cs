@@ -15,12 +15,16 @@ namespace CB_Autotest
         protected IWebDriver driver;
         protected ApplicationManager manager;
 
+        //Указать стенд на котором запускать автотесты
+        protected string PortNumberOfTestStand = "7003";
+
         public HelperBase(ApplicationManager manager)
         {
             this.manager = manager;
             driver = manager.Driver;
         }
 
+        //Заполняет поле
         public void Type(By locator, string text)
         {
             if (text != null)
@@ -30,6 +34,7 @@ namespace CB_Autotest
             }
         }
 
+        //Проверяет наличие элемента на странице
         public bool IsElementPresent(By by)
         {
             try
