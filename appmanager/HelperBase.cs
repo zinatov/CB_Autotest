@@ -47,5 +47,14 @@ namespace CB_Autotest
                 return false;
             }
         }
+
+        public void WaitForElementLoad(By by, int timeoutInSeconds)
+        {
+            if (timeoutInSeconds > 0)
+            {
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
+                wait.Until(c => c.FindElement(by));
+            }
+        }
     }
 }

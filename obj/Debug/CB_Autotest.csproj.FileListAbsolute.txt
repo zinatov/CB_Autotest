@@ -60,10 +60,6 @@ C:\Source\Repos\CB_Autotest\bin\Debug\Mono.Cecil.Rocks.dll
 C:\Source\Repos\CB_Autotest\bin\Debug\nunit.core.dll
 C:\Source\Repos\CB_Autotest\bin\Debug\nunit.core.interfaces.dll
 C:\Source\Repos\CB_Autotest\bin\Debug\nunit.util.dll
-C:\Source\Repos\CB_Autotest\bin\Debug\NUnit3.TestAdapter.dll
-C:\Source\Repos\CB_Autotest\bin\Debug\NUnit3.TestAdapter.pdb
-C:\Source\Repos\CB_Autotest\bin\Debug\nunit.engine.dll
-C:\Source\Repos\CB_Autotest\bin\Debug\nunit.engine.api.dll
 C:\Source\Repos\CB_Autotest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Source\Repos\CB_Autotest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Source\Repos\CB_Autotest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -80,8 +76,12 @@ C:\Source\Repos\CB_Autotest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFr
 C:\Source\Repos\CB_Autotest\bin\Debug\nunit.framework.pdb
 C:\Source\Repos\CB_Autotest\bin\Debug\nunit.framework.xml
 C:\Source\Repos\CB_Autotest\bin\Debug\WebDriver.xml
+C:\Source\Repos\CB_Autotest\obj\Debug\CB_Autotest.csprojAssemblyReference.cache
 C:\Source\Repos\CB_Autotest\obj\Debug\CB_Autotest.csproj.CoreCompileInputs.cache
 C:\Source\Repos\CB_Autotest\obj\Debug\CB_Autotest.csproj.CopyComplete
 C:\Source\Repos\CB_Autotest\obj\Debug\CB_Autotest.dll
 C:\Source\Repos\CB_Autotest\obj\Debug\CB_Autotest.pdb
-C:\Source\Repos\CB_Autotest\obj\Debug\CB_Autotest.csprojAssemblyReference.cache
+C:\Source\Repos\CB_Autotest\bin\Debug\NUnit3.TestAdapter.dll
+C:\Source\Repos\CB_Autotest\bin\Debug\NUnit3.TestAdapter.pdb
+C:\Source\Repos\CB_Autotest\bin\Debug\nunit.engine.dll
+C:\Source\Repos\CB_Autotest\bin\Debug\nunit.engine.api.dll

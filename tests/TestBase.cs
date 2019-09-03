@@ -17,7 +17,7 @@ namespace CB_Autotest
         {
             app = ApplicationManager.GetInstance();
         }
-
+        
         //[TearDown]
         //public void End()
         //{

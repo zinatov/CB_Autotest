@@ -17,22 +17,22 @@ namespace CB_Autotest
         }
 
         public void ContractCreation()
-        {
-            
+        {   
             OpenContractCreateForm();
             FillFormOnFirstTab();
-            OpenNextTab();
-            FillFormOnSecondTab();
-            OpenNextTab();
-            OpenNextTab();
-            FillFormOnFouthTab();
-            OpenNextTab();
-            FillFormOnFifthTab();
-            OpenNextTab();
+            //OpenNextTab();
+            //FillFormOnSecondTab();
+            //OpenNextTab();
+            //OpenNextTab();
+            //FillFormOnFouthTab();
+            //OpenNextTab();
+            //FillFormOnFifthTab();
+            //OpenNextTab();
         }
 
         public void FillFormOnFifthTab()
-        {
+        {   //заполнение данных на вкладке "Файлы"
+            Thread.Sleep(1000);
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Этап'])[1]/following::a[1]")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Описание'])[1]/following::span[4]")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Выйти в реестр'])[1]/following::input[1]")).Clear();
@@ -47,11 +47,14 @@ namespace CB_Autotest
         }
 
         public void FillFormOnFouthTab()
-        {
+        {   //Заполнение данных на вкладке "Порядок расчета"
             driver.FindElement(By.CssSelector("#paymentSchedules > div.k-header.k-grid-toolbar.k-grid-top > a.k-button.k-button-icontext.k-grid-add")).Click();
             driver.FindElement(By.CssSelector("span[name=\"ExpenseName\"]")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='[00000002]: СЗ в интересах административной деятельности'])[1]/preceding::span[1]")).Click();
-            driver.FindElement(By.ClassName("k-formatted-value required width100 cppu-price-value k-input")).SendKeys("1000");
+            Thread.Sleep(1000);
+            //driver.FindElement(By.CssSelector("td span span input")).Click();
+            //driver.FindElement(By.CssSelector("td span span input")).Clear();
+            driver.FindElement(By.CssSelector("td span span input")).SendKeys("1000");
             driver.FindElement(By.LinkText("Обновить")).Click();
         }
 
@@ -65,26 +68,36 @@ namespace CB_Autotest
         }
 
         public void FillFormOnFirstTab()
-        {
+        {   //Заполнение данных на вкладке "Общие сведения"
             String ContractNumberName = "Номер договора" + " " + (DateTime.Now).ToString();
+            String ContractDate = DateTime.Now.ToShortDateString();
             driver.FindElement(By.Id("Number")).Click();
             driver.FindElement(By.Id("Number")).Clear();
             driver.FindElement(By.Id("Number")).SendKeys(ContractNumberName);
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Дата'])[1]/following::span[4]")).Click();
-            driver.FindElement(By.LinkText("28")).Click();
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Способ закупки'])[1]/following::span[3]")).Click();
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='не задано'])[6]/following::li[1]")).Click();
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Ответственный за договор'])[1]/following::span[1]")).Click();
+            //Заполнение даты договора
+            driver.FindElement(By.XPath("//form[@id='mainform']/div/div[2]/div/span/span/span/span")).Click();
+            driver.FindElement(By.LinkText("1")).Click();
+            //Выбор способа закупки
+            driver.FindElement(By.XPath("//div[5]/div/span/span/span")).Click();
+            driver.FindElement(By.XPath("//ul[@id='PurchaseMethod_listbox']/li[1]")).Click();
+            //Выбор пользователя ответсвенного за договор
+            driver.FindElement(By.XPath("//span[@name='ResponsiblePersonName']")).Click();
             driver.FindElement(By.Id("responsibleSearchValue")).Click();
             driver.FindElement(By.Id("responsibleSearchValue")).Clear();
-            driver.FindElement(By.Id("responsibleSearchValue")).SendKeys("autotest");
-            driver.FindElement(By.Id("responsibleSearchValue")).SendKeys(Keys.Enter);
-            Thread.Sleep(1000);
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Фамилия_тест Имя_тест Отчество_тест'])[1]/following::td[2]")).Click();
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Перечень подразделений исполнителей'])[1]/following::input[1]")).Click();
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Close'])[3]/following::span[1]")).Click();
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Департаменты'])[1]/following::span[2]")).Click();
+            driver.FindElement(By.Id("responsibleSearchValue")).SendKeys("autotest_user");
+            driver.FindElement(By.XPath("//div[@id='responsiblePerson-window']/div/div/span/button/span")).Click();
+            WaitForElementLoad(By.XPath("//div[@id='responsiblePerson-grid']/table/tbody/tr/td"), 5000);
+            driver.FindElement(By.XPath("//div[@id='responsiblePerson-grid']/table/tbody/tr/td")).Click();
+
+            driver.FindElement(By.XPath("//form[@id='mainform']/div/div[12]/div/div/div/input")).Click();
+            driver.FindElement(By.CssSelector("span.k-icon.k-plus")).Click();
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Северо-Западное главное управление Банка России'])[3]/preceding::span[2]")).Click();
             driver.FindElement(By.Id("select-executing-departments")).Click();
+
+            //driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Перечень подразделений исполнителей'])[1]/following::input[1]")).Click();
+            //driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Close'])[3]/following::span[1]")).Click();
+            //driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Департаменты'])[1]/following::span[2]")).Click();
+            //driver.FindElement(By.Id("select-executing-departments")).Click();
             driver.FindElement(By.Id("Subject")).Click();
             driver.FindElement(By.Id("Subject")).Clear();
             driver.FindElement(By.Id("Subject")).SendKeys("Предмет договора");
@@ -114,7 +127,7 @@ namespace CB_Autotest
 
         public void OpenContractCreateForm()
         {
-            Thread.Sleep(1000);
+            WaitForElementLoad(By.LinkText("Добавить"), 1000);
             driver.FindElement(By.LinkText("Добавить")).Click();
         }
     }
